@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing</title>
+  <style>
+    body {
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: radial-gradient(circle, #ff3b00 -125%, #000000 100%);
+    }
+    #output {
+      font-size: 3.5rem;
+      color: #333;
+      text-align: center;
+      margin-bottom: -50px;
+    }
+    pre {
+      font-size: 1.5rem;
+      background: radial-gradient(circle, #ff3b00 -125%, #ffffff 100%);
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <pre>
+    <div id="output"></div>
+    <div>>> [ จากพระเอกตัวดำ | ปิดหมด ] <<</div>
+</pre>
+
+  <script>
+    const text = "ควายกัน @helloguys5151_";
+    const outputElement = document.getElementById('output');
+    let index = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      if (!isDeleting && index < text.length) {
+        outputElement.textContent += text[index];
+        index++;
+        setTimeout(typeEffect, 100);
+      } else if (isDeleting && index > 7) {
+        outputElement.textContent = text.substring(0, index - 1);
+        index--;
+        setTimeout(typeEffect, 35);
+      } else {
+        isDeleting = !isDeleting;
+        setTimeout(typeEffect, 500);
+      }
+    }
+
+    typeEffect();
+  </script>
+</body>
+</html>
