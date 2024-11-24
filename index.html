@@ -23,6 +23,16 @@
             font-size: 25px; /*กำหนดขนาดตัวอักษรของ <h2> เป็น 25px*/
         }
 
+        pre {
+            font-size: 1.5rem; /*กำหนดขนาดตัวอักษรของ pre เป็น 1.5rem*/
+            padding: 10px; /*เพิ่มช่องว่างรอบเนื้อหา (10px ด้านบนและล่าง)*/
+            overflow: auto; /*จัดการเนื้อหา แบบอัติโนมัติ*/
+        }
+
+        .text-color { /*ข้อความสีแดง*/
+            color: rgb(255, 0, 0);
+        }
+
         .sliding-r {
             position: absolute; /*วางตำแหน่งองค์ประกอบโดยสัมพันธ์กับ*/
             white-space: nowrap; /*ทำให้ข้อความไม่ตัดบรรทัด*/
@@ -59,5 +69,77 @@
             <div class="sliding-r">จริงค้าบบบบบบบบบบบบบบบบบบ</div>
         </section>
     </div>
+
+    <pre>
+&gt;!DOCTYPE html&gt;
+&gt;html lang="en"&gt;
+&gt;head&gt;
+    &gt;meta charset="UTF-8"&gt;
+    &gt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &gt;title&gt;Text Sliding&gt;/title&gt;
+    &gt;style&gt;
+        .header {
+            text-align: center; <span class="text-color">/*ทำให้ข้อความจัดให้อยู่ตรงกลางในแนวนอน*/</span>
+            padding: 50px 20px; <span class="text-color">/*เพิ่มช่องว่างรอบเนื้อหา (50px ด้านบนและล่าง, 20px ด้านซ้ายและขวา)*/</span>
+            border-radius: 8px; <span class="text-color">/*ทำให้มุมของกล่องมีความโค้ง 8px*/</span>
+            margin: 20px 0; <span class="text-color">/*กำหนดระยะห่าง (20px ด้านบนและล่าง)*/</span>
+            background-color: rgba(255, 255, 255, 0.025); <span class="text-color">/*สีพื้นหลัง*/</span>
+            position: relative; <span class="text-color">/*ใช้จัดการตำแหน่งขององค์ประกอบภายใน*/</span>
+            overflow: hidden; <span class="text-color">/*ซ่อนเนื้อหาที่อยู่นอกกรอบ*/</span>
+        }
+
+        .header h2 {
+            font-size: 35px; <span class="text-color">/*กำหนดขนาดตัวอักษรของ &gt;h2&gt; เป็น 35px*/</span>
+        }
+
+        .header h5 {
+            font-size: 25px; <span class="text-color">/*กำหนดขนาดตัวอักษรของ &gt;h2&gt; เป็น 25px*/</span>
+        }
+
+        pre {
+            font-size: 1.5rem; <span class="text-color">/*กำหนดขนาดตัวอักษรของ pre เป็น 1.5rem*/</span>
+            padding: 10px; <span class="text-color">/*เพิ่มช่องว่างรอบเนื้อหา (10px ด้านบนและล่าง)*/</span>
+            overflow: auto; <span class="text-color">/*จัดการเนื้อหา แบบอัติโนมัติ*/</span>
+        }
+
+        .sliding-r {
+            position: absolute; <span class="text-color">/*วางตำแหน่งองค์ประกอบโดยสัมพันธ์กับ*/</span>
+            white-space: nowrap; <span class="text-color">/*ทำให้ข้อความไม่ตัดบรรทัด*/</span>
+            font-size: 30px; <span class="text-color">/*กำหนดขนาดตัวอักษรเป็น 50px*/</span>
+            animation: slide-r 10s linear infinite; <span class="text-color">/*ใช้แอนิเมชันชื่อ slide-r ที่ใช้เวลาเล่น 10 วินาที และทำซ้ำเรื่อย ๆ (infinite)*/</span>
+        }
+
+        @keyframes slide-r {
+            0% {
+                transform: translateX(2500px); <span class="text-color">/*0%: เริ่มต้นข้อความอยู่ที่ตำแหน่ง X = 2500px (อยู่นอกจอด้านขวา)*/</span>
+            }
+            100% {
+                transform: translateX(-1000px); <span class="text-color">/*จบแอนิเมชันข้อความจะเลื่อนไปที่ X = -1000px (ออกจอด้านซ้าย)*/</span>
+            }
+        }
+
+        @media screen and (max-width: 680px) { <span class="text-color">/*สำหรับโทรศัพท์*/</span>
+            @keyframes slide-r {
+                0% {
+                    transform: translateX(1250px); <span class="text-color">/*0%: เริ่มต้นข้อความอยู่ที่ตำแหน่ง X = 2000px (อยู่นอกจอด้านขวา)*/</span>
+                }
+                100% {
+                    transform: translateX(-250px); <span class="text-color">/*จบแอนิเมชันข้อความจะเลื่อนไปที่ X = -500px (ออกจอด้านซ้าย)*/</span>
+                }
+            }
+        }
+    &gt;/style&gt;
+&gt;/head&gt;
+&gt;body&gt;
+    &gt;div&gt;
+        &gt;section class="header"&gt;
+            &gt;h2&gt;ไอ้กันควายจริงมั้ย?&gt;/h2&gt;
+            &gt;h5&gt;@helloguys5151_&gt;/h5&gt;
+            &gt;div class="sliding-r"&gt;จริงค้าบบบบบบบบบบบบบบบบบบ&gt;/div&gt;
+        &gt;/section&gt;
+    &gt;/div&gt;
+&gt;/body&gt;
+&gt;/html&gt;
+    </pre>
 </body>
 </html>
